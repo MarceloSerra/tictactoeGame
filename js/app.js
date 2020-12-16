@@ -22,7 +22,7 @@ const disabledGame = () => {
 
 app.style.opacity = ".5";
 
-btnReset.setAttribute("disabled", true);
+btnStart.removeAttribute("disabled");
 
 }
 
@@ -45,6 +45,7 @@ const resetGame = () => {
 input.forEach( (item) => {
     item.value = "";
     item.removeAttribute("disabled");
+});
 
 app.style.opacity = "1";
 turnHeader.innerHTML = "Player 1";
@@ -56,7 +57,6 @@ line.style.top = "0";
 line.style.left = "0";
 line.style.display = "none";
 
-})
 }
 
 const checkWinOrHash = () => {
