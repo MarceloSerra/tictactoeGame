@@ -1,0 +1,53 @@
+<!--
+Author: Marcelo Serra
+Date: 16/12/2020
+Project: Tic-Tac-Toe Game
+Obs: Portrait responsive implemented
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe Game</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<style>
+
+
+</style>
+<body>
+    <div class="wrapper-hashgame">
+        <div class="line"></div>
+        <div class="row">
+            <input class="input" onchange="checkValidInput(this)" type="text" maxlength="1">
+            <input class="input" onchange="checkValidInput(this)" type="text" maxlength="1">
+            <input class="input" onchange="checkValidInput(this)" type="text" maxlength="1">
+        </div>
+
+        <div class="row margin-y">
+            <input class="input" onchange="checkValidInput(this)" type="text" maxlength="1">
+            <input class="input" onchange="checkValidInput(this)" type="text" maxlength="1">
+            <input class="input" onchange="checkValidInput(this)" type="text" maxlength="1">
+        </div>
+
+        <div class="row">
+            <input class="input" onchange="checkValidInput(this)" type="text" maxlength="1">
+            <input class="input" onchange="checkValidInput(this)" type="text" maxlength="1">
+            <input class="input" onchange="checkValidInput(this)" type="text" maxlength="1">
+        </div>
+    </div>
+
+    <aside>
+        <div class="aside-panel">
+            <h1 class="player-turn">Welcome to the <br> Tic-Tac-Toe Game!</h1>
+            <button class="aside-panel-btn-start btn-start" onclick="startGame()">Start Game</button>
+            <button class="aside-panel-btn-reset aside-panel-btn-reset__bg-purple btn-reset" onclick="resetGame()">Reset Game</button>
+        </div>         
+    </aside>
+
+<script src="js/app.js" defer></script>
+</body>
+</html>
