@@ -22,8 +22,6 @@ const disabledGame = () => {
 
 app.style.opacity = ".5";
 
-btnStart.removeAttribute("disabled");
-
 }
 
 const startGame = () => {
@@ -56,6 +54,9 @@ lastInput = null;
 line.style.top = "0";
 line.style.left = "0";
 line.style.display = "none";
+line.style.transform = "rotate(0)";
+line.style.height = "0";
+line.style.width = "0";
 
 }
 
@@ -67,7 +68,7 @@ const checkWinOrHash = () => {
         
         drawLine("middleX");
 
-        input[4].value == "X" ? turnHeader.innerHTML = "Player 1 Won!" :  turnHeader.innerHTML = "Player 2 Won!";      //TODO
+        input[4].value == "X" ? turnHeader.innerHTML = "Player 1 Won!" :  turnHeader.innerHTML = "Player 2 Won!";     
         disabledGame();
          
     } else if
@@ -147,16 +148,22 @@ const checkWinOrHash = () => {
 const drawLine = ( stringPosition ) =>{
     switch(stringPosition){
         case "top":{
+            line.style.height = "15px";
+            line.style.width = "100%";
             line.style.display = "block";
             line.style.top = "14.5%";
             break;
         }
         case "middleX":
+            line.style.height = "15px";
+            line.style.width = "100%";
             line.style.display = "block";
             line.style.top = "48%";
             break;
         
         case "bottom":
+            line.style.height = "15px";
+            line.style.width = "100%";
             line.style.display = "block";
             line.style.top = "81.5%";
             break;
@@ -183,12 +190,16 @@ const drawLine = ( stringPosition ) =>{
             break;
         
         case "diagRightLeft":
+            line.style.height = "15px";
+            line.style.width = "100%";
             line.style.display = "block";
             line.style.top = "49%";
             line.style.transform = "rotate(-33deg)";
             break;
         
         case "diagLeftRight":
+            line.style.height = "15px";
+            line.style.width = "100%";
             line.style.display = "block";
             line.style.top = "49%";
             line.style.transform = "rotate(33deg)";
