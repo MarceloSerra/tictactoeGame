@@ -70,6 +70,7 @@ const checkWinOrHash = () => {
 
         input[4].value == "X" ? turnHeader.innerHTML = "Player 1 Won!" :  turnHeader.innerHTML = "Player 2 Won!";     
         disabledGame();
+        return true;
          
     } else if
         (input[1].value === input[0].value && 
@@ -80,6 +81,7 @@ const checkWinOrHash = () => {
 
         input[1].value == "X" ? turnHeader.innerHTML = "Player 1 Won!" :  turnHeader.innerHTML = "Player 2 Won!";
         disabledGame();
+        return true;
 
     } else if
          (input[7].value === input[6].value && 
@@ -90,6 +92,7 @@ const checkWinOrHash = () => {
 
         input[7].value == "X" ? turnHeader.innerHTML = "Player 1 Won!" :  turnHeader.innerHTML = "Player 2 Won!";
         disabledGame();
+        return true;
 
     } else if
          (input[4].value === input[1].value && 
@@ -100,6 +103,7 @@ const checkWinOrHash = () => {
 
         input[4].value == "X" ? turnHeader.innerHTML = "Player 1 Won!" :  turnHeader.innerHTML = "Player 2 Won!";
         disabledGame();
+        return true;
 
     } else if
          (input[3].value === input[0].value && 
@@ -110,6 +114,7 @@ const checkWinOrHash = () => {
 
         input[3].value == "X" ? turnHeader.innerHTML = "Player 1 Won!" :  turnHeader.innerHTML = "Player 2 Won!";
         disabledGame();
+        return true;
 
     } else if 
          (input[2].value === input[5].value && 
@@ -120,6 +125,7 @@ const checkWinOrHash = () => {
         
         input[2].value == "X"  ? turnHeader.innerHTML = "Player 1 Won!" :  turnHeader.innerHTML = "Player 2 Won!";
         disabledGame();
+        return true;
 
     } else if
          (input[4].value === input[0].value && 
@@ -130,6 +136,7 @@ const checkWinOrHash = () => {
         
         input[4].value == "X" ? turnHeader.innerHTML = "Player 1 Won!" :  turnHeader.innerHTML = "Player 2 Won!";
         disabledGame();
+        return true;
 
     } else if
          (input[4].value === input[2].value && 
@@ -140,7 +147,10 @@ const checkWinOrHash = () => {
         
         input[4].value == "X" ? turnHeader.innerHTML = "Player 1 Won!" :  turnHeader.innerHTML = "Player 2 Won!";
         disabledGame();
+        return true;
 
+    } else{
+        return false;
     }
 
 }
@@ -210,8 +220,6 @@ const drawLine = ( stringPosition ) =>{
 
 const checkValidInput = (event) => {
 
-    console.log(event.value);
-
     if( event.value !== "X" && 
         event.value !== "O"){
 
@@ -243,13 +251,13 @@ const checkValidInput = (event) => {
 
     lastInput = event.value;
     
-    checkWinOrHash();
+   console.log( checkWinOrHash() );
 
     event.setAttribute("disabled", true);
 
     count++;
 
-    if(count == 9){
+    if(count == 9 && checkWinOrHash() == false){
         turnHeader.innerHTML = "Draw!";
     }
     
