@@ -44,7 +44,11 @@ Obs: Portrait responsive implemented
         <div class="aside-panel">
             <h1 class="player-turn">Welcome to the <br> Tic-Tac-Toe Game!</h1>
             <button class="aside-panel-btn-start btn-start" onclick="startGame()">Start Game</button>
-            <button class="aside-panel-btn-reset aside-panel-btn-reset__bg-purple btn-reset" onclick="resetGame()">Reset Game</button>
+            <button class="aside-panel-btn-reset aside-panel-btn-reset__bg-purple btn-reset" onclick="resetGame()" disabled>Reset Game</button>
+            <div>
+                <input class="play-cpu" name="CPU" type="checkbox" onchange="cpuOnOff()" checked>
+                <label for="CPU">Play CPU</label>
+            </div>
         </div>         
     </aside>
 
