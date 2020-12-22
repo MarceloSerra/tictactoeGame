@@ -7,12 +7,35 @@ const btnStart = document.querySelector(".btn-start");
 const btnReset = document.querySelector(".btn-reset");
 const line = document.querySelector(".line");
 const app = document.querySelector(".wrapper-hashgame");
+const checkCPU = document.querySelector(".play-cpu");
 let lastInput;
 let turn = "Player 1";
 let count = 0;
+let cpu = true;
 
 
 
+const cpuOnOff = () =>{
+    cpu = !cpu;
+}
+
+
+const playCPU = () => {
+    let slot = 0;
+    let index = 0;
+    const emptySlots = new Array();
+    input.forEach( item => {
+        if(item.value === "")
+        {
+            emptySlots.push(index);
+        }
+        index++;
+    });
+
+    slot = emptySlots[Math.floor(Math.random()*emptySlots.length)];
+    input[slot].value = "O";
+    checkValidInput(input[slot]);
+}
 
 
 const disabledGame = () => {
@@ -34,6 +57,7 @@ turnHeader.innerHTML = turn;
 btnReset.removeAttribute("disabled");
 btnStart.setAttribute("disabled", true);
 btnStart.style.opacity = ".5";
+checkCPU.setAttribute("disabled", true);
 
 
 }
@@ -261,28 +285,12 @@ const checkValidInput = (event) => {
         turnHeader.innerHTML = "Draw!";
     }
 
-    if(event.value == "X"  && checkWinOrHash() == false ){
+    if(event.value == "X"  && checkWinOrHash() == false && cpu == true){
         setTimeout( playCPU, 500 );
     }
     
     return true;
 }
 
-const playCPU = () => {
-    let slot = 0;
-    let index = 0;
-    const emptySlots = new Array();
-    input.forEach( item => {
-        if(item.value === "")
-        {
-            emptySlots.push(index);
-        }
-        index++;
-    });
-
-    slot = emptySlots[Math.floor(Math.random()*emptySlots.length)];
-    input[slot].value = "O";
-    checkValidInput(input[slot]);
-}
 
 disabledGame();
