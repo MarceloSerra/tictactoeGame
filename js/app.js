@@ -224,7 +224,7 @@ const checkValidInput = (event) => {
         event.value !== "O"){
 
         event.value = "";        
-        return alert("Invalid input. Must be O or X (uppercased) "); ; 
+        return alert("Invalid input. Must be O or X (uppercased) ");
     }
 
     if(count === 0){
@@ -251,7 +251,7 @@ const checkValidInput = (event) => {
 
     lastInput = event.value;
     
-   console.log( checkWinOrHash() );
+   checkWinOrHash();
 
     event.setAttribute("disabled", true);
 
@@ -260,8 +260,29 @@ const checkValidInput = (event) => {
     if(count == 9 && checkWinOrHash() == false){
         turnHeader.innerHTML = "Draw!";
     }
+
+    if(event.value == "X"  && checkWinOrHash() == false ){
+        setTimeout( playCPU, 500 );
+    }
     
     return true;
+}
+
+const playCPU = () => {
+    let slot = 0;
+    let index = 0;
+    const emptySlots = new Array();
+    input.forEach( item => {
+        if(item.value === "")
+        {
+            emptySlots.push(index);
+        }
+        index++;
+    });
+
+    slot = emptySlots[Math.floor(Math.random()*emptySlots.length)];
+    input[slot].value = "O";
+    checkValidInput(input[slot]);
 }
 
 disabledGame();
